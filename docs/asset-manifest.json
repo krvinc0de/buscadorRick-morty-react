@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/buscadorRick-morty-react/static/css/main.70bcd9f3.css",
+    "main.js": "/buscadorRick-morty-react/static/js/main.c1ed4504.js",
+    "index.html": "/buscadorRick-morty-react/index.html",
+    "main.70bcd9f3.css.map": "/buscadorRick-morty-react/static/css/main.70bcd9f3.css.map",
+    "main.c1ed4504.js.map": "/buscadorRick-morty-react/static/js/main.c1ed4504.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.70bcd9f3.css",
+    "static/js/main.c1ed4504.js"
+  ]
+}
