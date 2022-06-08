@@ -12,6 +12,7 @@ const App = () => {
   const {data, loading} = usePeticionInfo(personaje);
   // console.log(data);
   const demo = ['morty', 'rick', 'president'];
+  //coment
 
   return (
     <div className="App">
