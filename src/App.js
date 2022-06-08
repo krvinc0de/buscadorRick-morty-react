@@ -1,23 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import AppBar from './components/AppBar';
+import Buscador from './components/Buscador';
+import Tarjetas from './components/Tarjetas';
+import usePeticionInfo from './hooks/usePeticionInfo';
 
-function App() {
+//https://rickandmortyapi.com/
+const App = () => {
+
+  const [personaje, setPersonaje] = useState('morty');
+
+  const {data, loading} = usePeticionInfo(personaje);
+  // console.log(data);
+  const demo = ['morty', 'rick', 'president'];
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <AppBar titulo={'rick and morty database'}/>
+        <div className='container'>
+          <h1>Buscar personajes de rick and morty</h1>
+          <h6>puedes buscar personajes como: {
+              demo.map(pers => {
+                return(
+                  <ul>{pers}</ul>
+                )
+              })
+            }</h6>
+          <Buscador setPersonaje={setPersonaje}/>
+          <h3>{personaje}</h3>
+          {
+            loading && <div class="spinner-border text-primary" role="status">
+                          <span class="visually-hidden">Loading...</span>
+                        </div>
+          }
+          <div className='row'>
+            {
+              data.map( resp => (
+                <div className='col mx-4' key={resp.name}>
+                  <div className='card'>
+                  <Tarjetas 
+                    key={resp.name}
+                    {...resp}
+                  /> 
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
     </div>
   );
 }
